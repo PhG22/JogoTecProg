@@ -2,13 +2,11 @@
 #include "stdafx.h"
 #include "Personagem.h"
 #include "ListaPersonagens.h"
-#include "GerenciadorGrafico.h"
-using namespace gerenciadorGrafico;
 
 class Principal
 {
 private:
-	GerenciadorGrafico janela;
+	RenderWindow* janela;
 	ListaPersonagens listaPersonagens;
 	Clock timer;
 

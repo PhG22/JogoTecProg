@@ -1,6 +1,10 @@
 #pragma once
 #include "Personagem.h"
 
+namespace sf {
+	class RenderWindow;
+}
+
 class ListaPersonagens
 {
 private:
@@ -32,9 +36,9 @@ public:
 	void inserir(Personagem* info);
 	Personagem* voltarInicio();
 	Personagem* irProximo();
-	void inicializar(GerenciadorGrafico& janela);
+
 	void atualizar(float t);
-	void desenhar(GerenciadorGrafico& janela);
+	void desenhar(sf::RenderWindow* janela);
 	void destruir();
 
 };
