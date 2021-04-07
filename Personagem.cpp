@@ -1,27 +1,33 @@
 #include "Personagem.h"
 
-Personagem::Personagem(Vector2f pos, Vector2f vel, const char* caminhoTextura) {
-	position = pos;
-	v = vel;
+Personagem::Personagem(Vetor2F pos, Vetor2F vel, const char* caminhoTextura) : 
+	position{ pos }, 
+	v{vel},
+	caminho{caminhoTextura}
+{
 
-	body.setSize(Vector2f(200.f, 200.f));
-
-	text = new Texture;
-	text->loadFromFile(caminhoTextura);
-	body.setTexture(text);
 }
 
-Personagem::~Personagem() { delete text; }
+Personagem::~Personagem() {
+}
 
 void Personagem::atualizar(float t) {
 	
-	position += v * t;
+	position.x = position.x + (v.x * t);
+	position.y = position.y + (v.y * t);
 
-	body.setPosition(position);
+
+	//body.setPosition(position);
 }
 
-void Personagem::desenhar(RenderWindow* janela) {
+void Personagem::inicializar(GerenciadorGrafico& janela) {
 
-	janela->draw(body);
+	janela.carregarTextura(caminho);
+
+}
+
+void Personagem::desenhar(GerenciadorGrafico& janela) {
+
+	janela.desenhar(caminho, position);
 
 }
