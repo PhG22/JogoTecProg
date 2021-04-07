@@ -1,19 +1,21 @@
 #pragma once
-#include "stdafx.h"
+#include "Vetor2D.h"
+#include "GerenciadorGrafico.h"
+using namespace gerenciadorGrafico;
 
 class Personagem
 {
 protected:
-	RectangleShape body;
-	Texture* text;
-	Vector2f position;
-	Vector2f v;
+	Vetor2F position;
+	Vetor2F v;
+	const char* caminho;
 
 public:
-	Personagem(Vector2f pos = Vector2f(0.f, 0.f), Vector2f vel = Vector2f(0.f, 0.f), const char* caminhoTextura = nullptr);
+	Personagem(Vetor2F pos, Vetor2F vel, const char* caminhoTextura = nullptr);
 	~Personagem();
 	void atualizar(float t);
-	void desenhar(RenderWindow* janela);
+	void desenhar(GerenciadorGrafico& janela);
+	void inicializar(GerenciadorGrafico& janela);
 	
 };
 

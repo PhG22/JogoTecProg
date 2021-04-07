@@ -73,6 +73,15 @@ Personagem* ListaPersonagens::irProximo() {
 	return (Atual) ? Atual->getInfo() : nullptr;
 }
 
+void ListaPersonagens::inicializar(GerenciadorGrafico& janela) {
+	Personagem* p = voltarInicio();
+
+	while (p) {
+		p->inicializar(janela);
+		p = irProximo();
+	}
+
+}
 
 void ListaPersonagens::atualizar(float t) {
 	Personagem* p = voltarInicio();
@@ -83,7 +92,7 @@ void ListaPersonagens::atualizar(float t) {
 	}
 }
 
-void ListaPersonagens::desenhar(sf::RenderWindow* janela) {
+void ListaPersonagens::desenhar(GerenciadorGrafico& janela) {
 	Personagem* p = voltarInicio();
 
 	while (p) {
