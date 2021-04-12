@@ -1,15 +1,19 @@
 #pragma once
 #include "stdafx.h"
-#include "Personagem.h"
-#include "ListaPersonagens.h"
+#include "Desenhavel.h"
+#include "ListaDesenhaveis.h"
 #include "GerenciadorGrafico.h"
 using namespace gerenciadorGrafico;
+#include "GerenciadorEventos.h"
+using namespace gerenciadorEventos;
+
 
 class Principal
 {
 private:
 	GerenciadorGrafico janela;
-	ListaPersonagens listaPersonagens;
+	GerenciadorEventos gEvent;
+	ListaDesenhaveis listaDesenhaveis;
 	Clock timer;
 
 public:
