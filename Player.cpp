@@ -1,14 +1,16 @@
 #include "Player.h"
 
-Player::Player(Vetor2F pos): Desenhavel(pos, Vetor2F(), "player.png")
+Player::Player(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::player , "player.png")
 {}
 
 Player::~Player()
 {}
 
-void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent)
+void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor)
 {
 	janela.carregarTextura(caminho);
+	dimensoes = janela.getTamanho(caminho);
+	gColisor.addColidivel(this);
 
 	chaveListener = gEvent.addListenerTeclado([this](const Event ev) {tratarEvento(ev); });
 }
@@ -68,4 +70,17 @@ void Player::tratarEvento(const sf::Event& ev)
 				break;
 		}
 	}
+}
+
+void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
+	
+	if (idOutro == IdsDesenhaveis::inimigo)
+		cout << "ataquei" << endl;
+	else
+		cout << "bateu" << endl;
+
+	Vetor2F dist = position - posOutro;
+
+	v = v * -1;
+	position = position + dist * 0.1;
 }

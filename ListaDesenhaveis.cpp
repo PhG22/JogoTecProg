@@ -8,11 +8,11 @@ void ListaDesenhaveis::esvaziar() {
 	lista.esvaziar();
 }
 
-void ListaDesenhaveis::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent) {
+void ListaDesenhaveis::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor) {
 	Desenhavel* d = lista.voltarInicio();
 
 	while (d) {
-		d->inicializar(janela, gEvent);
+		d->inicializar(janela, gEvent, gColisor);
 		d = lista.irProximo();
 	}
 

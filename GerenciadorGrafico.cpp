@@ -8,6 +8,7 @@ namespace gerenciadorGrafico {
 	{
 
 		janela->setView(camera);
+		janela->setKeyRepeatEnabled(false);
 
 	}
 
@@ -28,7 +29,7 @@ namespace gerenciadorGrafico {
 
 	void GerenciadorGrafico::desenhar(const string caminho, const Vetor2F pos) {
 		if (texturas.count(caminho) == 0) {
-			cout << "Erro! Imagem 'nao carregada" << endl;
+			cout << "Erro! Imagem nao carregada" << endl;
 			exit(1);
 		}
 
@@ -57,6 +58,18 @@ namespace gerenciadorGrafico {
 
 	void GerenciadorGrafico::centralizar(const Vetor2F centro) {
 		camera.setCenter(Vector2f(centro.x, centro.y));
+		janela->setView(camera);
+	}
+
+	const Vetor2U GerenciadorGrafico::getTamanho(const string caminho){
+		if (texturas.count(caminho) == 0) {
+			cout << "Erro! Imagem nao carregada" << endl;
+			exit(1);
+		}
+
+		Vector2u dim = (texturas[caminho])->getSize();
+
+		return Vetor2U(dim.x, dim.y);
 	}
 
 }

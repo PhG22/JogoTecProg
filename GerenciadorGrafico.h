@@ -24,6 +24,7 @@ namespace gerenciadorGrafico {
 		bool carregarTextura(const string caminho);
 		void centralizar(const Vetor2F centro);
 		RenderWindow* getJanela() const { return janela; }
+		const Vetor2U getTamanho(const string caminho);
 
 	};
 }

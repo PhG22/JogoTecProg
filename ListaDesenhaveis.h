@@ -13,7 +13,7 @@ public:
 	void esvaziar();
 	void inserir(Desenhavel* info);
 
-	void inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent);
+	void inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor);
 	void atualizar(float t);
 	void desenhar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent);
 	void destruir();
