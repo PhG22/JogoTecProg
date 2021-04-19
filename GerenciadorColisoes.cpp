@@ -45,4 +45,9 @@ namespace gerenciadorColisoes {
 		}
 	}
 
+	void GerenciadorColisoes::setGerenciadorTiles(GerenciadorTiles& Gt)
+	{
+		gt = Gt;
+	}
+
 }
