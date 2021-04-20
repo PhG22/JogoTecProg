@@ -10,7 +10,8 @@ using namespace gerenciadorGrafico;
 using namespace gerenciadorEventos;
 #include "GerenciadorColisoes.h"
 using namespace gerenciadorColisoes;
-
+#include "GerenciadorTiles.h"
+using namespace gerenciadorTiles;
 
 
 class Principal
@@ -19,6 +20,7 @@ private:
 	GerenciadorGrafico janela;
 	GerenciadorEventos gEvent;
 	GerenciadorColisoes gColisor;
+	GerenciadorTiles gTiles;
 	ListaDesenhaveis listaDesenhaveis;
 	Clock timer;
 	unsigned int IDJanelaFechada;

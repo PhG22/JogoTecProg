@@ -5,16 +5,22 @@
 #include "TileMap.h"
 #include "Vetor2D.h"
 #include "IDsDesenhaveis.h"
-#include "Desenhavel.h"
+#include "GerenciadorEventos.h"
+//#include "Desenhavel.h"
 using namespace gerenciadorGrafico;
 using namespace gerenciadorColisoes;
+using namespace gerenciadorEventos;
 using namespace IdsDesenhaveis;
 
 #include <vector>
 
+namespace gerenciadorColisoes{
+	class GerenciadorColisoes;
+}
+
 
 namespace gerenciadorTiles {
-	class GerenciadorTiles : public Desenhavel
+	class GerenciadorTiles
 	{
 
 	public:
@@ -22,22 +28,23 @@ namespace gerenciadorTiles {
 		{
 			const IdsDesenhaveis::IDsDesenhaveis id;
 			const Vetor2F posicao;
-			const Vetor2F tamanho;
+			const Vetor2U tamanho;
 		}Info;
 		
 	private:
 		TileMap tilemap;
-		Vetor2F DimensoesTiles;
+		Vetor2U DimensoesTiles;
 		const char* caminho;
-		std::vector <Tile> tiles;
+		vector <Tile*> Tiles;
 
 	public:
-		GerenciadorTiles(std::vector<Tile> tiles, Vetor2F dimensoes, const char* caminhoArquivo);
+		GerenciadorTiles(vector<Tile*> tiles, Vetor2U dimensoes, const char* caminhoArquivo);
+		GerenciadorTiles() {}
 		~GerenciadorTiles();
-		void atualizar(float t);
-		void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge, GerenciadorColisoes& gc);
+		void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge);
 		void desenhar(GerenciadorGrafico& GG)const;
-		void checarColisoes(const IdsDesenhaveis::IDsDesenhaveis id, Vetor2F posicao, Vetor2F tamanho); //Depois de mexer no gerenciador de colisões alterar void para std::vector<Info> 
+		vector<Info> checarColisoes(const IdsDesenhaveis::IDsDesenhaveis id, Vetor2F posicao, Vetor2U tamanho); 
+		const Vetor2F converterCoordenadasMapaTela(const Vetor2U pos) const;
 
 	};
 }

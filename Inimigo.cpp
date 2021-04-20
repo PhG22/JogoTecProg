@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, IdsDesenhaveis::inimigo, "Enemy.png") {
+Inimigo::Inimigo(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, IdsDesenhaveis::inimigo, "Resources/Textures/Enemy.png") {
 
 }
 
@@ -11,8 +11,8 @@ Inimigo::~Inimigo() {
 void Inimigo::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
 	if (idOutro == IdsDesenhaveis::player)
 		cout << "nhac" << endl;
-	else
-		cout << "bateu" << endl;
+	//else
+		//cout << "bateu" << endl;
 
 	Vetor2F dist = position - posOutro;
 

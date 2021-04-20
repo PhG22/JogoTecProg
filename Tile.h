@@ -2,27 +2,30 @@
 #include "stdafx.h"
 
 #include "GerenciadorGrafico.h"
+#include "GerenciadorEventos.h"
 #include "IDsDesenhaveis.h"
 #include "Vetor2D.h"
 using namespace gerenciadorGrafico;
+using namespace gerenciadorEventos;
 using namespace gerenciadorColisoes;
 using namespace IdsDesenhaveis;
 
-class Tile
-{
-private:
-	const IdsDesenhaveis::IDsDesenhaveis Id;
-	const char* caminho;
-	Vetor2F tamanho;
-	GerenciadorGrafico* gg;
+namespace gerenciadorTiles {
+	class Tile
+	{
+	private:
+		const IdsDesenhaveis::IDsDesenhaveis Id;
+		const char* caminho;
+		Vetor2F Tamanho;
+		//GerenciadorGrafico* gg;
 
-public:
-	Tile(const IdsDesenhaveis::IDsDesenhaveis ID, const char* caminhoArquivo = "", Vetor2F tamanho = -1.0);
-	~Tile();
-	virtual void inicializar(GerenciadorGrafico& GG);
-	void desenhar()const;
-	const IdsDesenhaveis::IDsDesenhaveis getId()const;
-	virtual void colidir(IdsDesenhaveis::IDsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2U posicao);
+	public:
+		Tile(const IdsDesenhaveis::IDsDesenhaveis ID, const char* caminhoArquivo = "", Vetor2F tamanho = -1.0);
+		~Tile();
+		virtual void inicializar(GerenciadorGrafico& gGraf, GerenciadorEventos& gEvent);
+		void desenhar(GerenciadorGrafico& gGraf, const Vetor2F posicao)const;
+		const IdsDesenhaveis::IDsDesenhaveis getId()const;
+		virtual void colidir(IdsDesenhaveis::IDsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2U posicao);
 
-};
-
+	};
+}

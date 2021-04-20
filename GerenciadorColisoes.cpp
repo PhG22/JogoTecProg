@@ -30,10 +30,19 @@ namespace gerenciadorColisoes {
 
 	void GerenciadorColisoes::tratarColisoes() {
 		for (auto i = listaColidiveis.begin(); i != listaColidiveis.end(); i++) {
+			Colidivel* p1 = *i;
+			
+			auto tilesColidindo = gt->checarColisoes(p1->getID(), p1->getPos(), p1->getDimensoes());
+
+			for (auto colisao : tilesColidindo) {
+
+				p1->colidir(colisao.id, colisao.posicao, colisao.tamanho);
+
+			}
+			
 			auto j = i;
 			j++;
 			for (; j != listaColidiveis.end(); j++) {
-				Colidivel* p1 = *i;
 				Colidivel* p2 = *j;
 
 				if (verificaColisao(p1, p2)) {
@@ -45,7 +54,7 @@ namespace gerenciadorColisoes {
 		}
 	}
 
-	void GerenciadorColisoes::setGerenciadorTiles(GerenciadorTiles& Gt)
+	void GerenciadorColisoes::setGerenciadorTiles(GerenciadorTiles* Gt)
 	{
 		gt = Gt;
 	}

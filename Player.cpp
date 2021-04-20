@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::player , "player.png")
+Player::Player(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::player , "Resources/Textures/player.png")
 {}
 
 Player::~Player()
@@ -76,8 +76,18 @@ void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro)
 	
 	if (idOutro == IdsDesenhaveis::inimigo)
 		cout << "ataquei" << endl;
+	else if(idOutro == IdsDesenhaveis::moeda)
+		cout << "quem quer dinheiro?" << endl;
+	else if(idOutro == IdsDesenhaveis::agua)
+		cout << "splash" << endl;
+	else if(idOutro == IdsDesenhaveis::final)
+		cout << "to livre porra!" << endl;
+	else if(idOutro == IdsDesenhaveis::espinho)
+		cout << "morri!" << endl;
+	else if(idOutro == IdsDesenhaveis::vida)
+		cout << "1up" << endl;
 	else
-		cout << "bateu" << endl;
+		cout << "colisao generica" << endl;
 
 	Vetor2F dist = position - posOutro;
 

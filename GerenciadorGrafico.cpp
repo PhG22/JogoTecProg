@@ -4,7 +4,7 @@ namespace gerenciadorGrafico {
 
 	GerenciadorGrafico::GerenciadorGrafico() :
 		janela{ new RenderWindow(VideoMode(800, 600), "Jogo" )},
-		camera{Vector2f(400, 300), Vector2f(800, 600)}
+		camera{Vector2f(800, 600), Vector2f(800, 600)}
 	{
 
 		janela->setView(camera);

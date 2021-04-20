@@ -13,16 +13,16 @@ namespace gerenciadorColisoes {
 	private:
 		set<Colidivel*> listaColidiveis;
 		bool verificaColisao(Colidivel* pc1, Colidivel* pc2);
-		GerenciadorTiles& gt;
+		GerenciadorTiles* gt;
 
 	public:
-		GerenciadorColisoes() {}
+		GerenciadorColisoes() : gt{nullptr} {}
 		~GerenciadorColisoes() {}
 		void addColidivel(Colidivel* pc);
 		void rmColidivel(Colidivel* pc);
 		void rmTodos();
 		void tratarColisoes();
-		void setGerenciadorTiles(GerenciadorTiles& Gt);
+		void setGerenciadorTiles(GerenciadorTiles* Gt);
 
 	};
 }
