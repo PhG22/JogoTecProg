@@ -129,3 +129,4 @@ TL Lista<TL>::irProximo() {
 
 	return (Atual) ? Atual->getInfo() : nullptr;
 }
+
