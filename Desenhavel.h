@@ -19,7 +19,7 @@ protected:
 	IDsDesenhaveis ID;
 
 public:
-	Desenhavel(Vetor2F pos, Vetor2F vel, IDsDesenhaveis id, const char* caminhoTextura = nullptr);
+	Desenhavel(Vetor2F pos = { 0,0 }, Vetor2F vel = {0,0}, IDsDesenhaveis id = padrao, const char* caminhoTextura = nullptr);
 	virtual ~Desenhavel();
 	virtual void atualizar(float t);
 	virtual void desenhar(GerenciadorGrafico& janela);

@@ -56,7 +56,6 @@ namespace gerenciadorEstados {
 	int Fase::executar() {
 
 		gEvent.tratarEventos();
-		gGraf.limpar();
 
 		pJog->atualizar(timer.getElapsedTime().asSeconds());
 		listaDesenhaveis.atualizar(timer.restart().asSeconds());

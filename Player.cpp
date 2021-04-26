@@ -76,21 +76,23 @@ void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro)
 	
 	if (idOutro == IdsDesenhaveis::inimigo)
 		cout << "ataquei" << endl;
-	else if(idOutro == IdsDesenhaveis::moeda)
+	else if (idOutro == IdsDesenhaveis::moeda)
 		cout << "quem quer dinheiro?" << endl;
-	else if(idOutro == IdsDesenhaveis::agua)
+	else if (idOutro == IdsDesenhaveis::agua)
 		cout << "splash" << endl;
-	else if(idOutro == IdsDesenhaveis::final)
+	else if (idOutro == IdsDesenhaveis::final)
 		cout << "to livre porra!" << endl;
-	else if(idOutro == IdsDesenhaveis::espinho)
+	else if (idOutro == IdsDesenhaveis::espinho)
 		cout << "morri!" << endl;
-	else if(idOutro == IdsDesenhaveis::vida)
+	else if (idOutro == IdsDesenhaveis::vida)
 		cout << "1up" << endl;
+	else if (idOutro == IdsDesenhaveis::chao)
+		v.y = 0;
 	else
 		cout << "colisao generica" << endl;
 
-	Vetor2F dist = position - posOutro;
+	/*Vetor2F dist = position - posOutro;
 
 	v = v * -1;
-	position = position + dist * 0.1;
+	position = position + dist * 0.1;*/
 }

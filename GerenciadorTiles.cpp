@@ -39,7 +39,7 @@ namespace gerenciadorTiles {
 
 		vector<Info> colisoes;
 
-		if (up < 0 || left < 0 || down >= (int)tilemap.getDimensoesMapa().y || left >= (int)tilemap.getDimensoesMapa().x)
+		if (up < 0 || left < 0 || down > (int)tilemap.getDimensoesMapa().y || left >= (int)tilemap.getDimensoesMapa().x)
 			return colisoes;
 
 		for (int i = up; i < down; i++) {

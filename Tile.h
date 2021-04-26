@@ -20,7 +20,7 @@ namespace gerenciadorTiles {
 		//GerenciadorGrafico* gg;
 
 	public:
-		Tile(const IdsDesenhaveis::IDsDesenhaveis ID, const char* caminhoArquivo = "", Vetor2F tamanho = -1.0);
+		Tile(const IdsDesenhaveis::IDsDesenhaveis ID = padrao, const char* caminhoArquivo = nullptr, Vetor2F tamanho = -1.0);
 		~Tile();
 		virtual void inicializar(GerenciadorGrafico& gGraf, GerenciadorEventos& gEvent);
 		void desenhar(GerenciadorGrafico& gGraf, const Vetor2F posicao)const;

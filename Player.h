@@ -7,7 +7,7 @@ private:
 
 public:
 
-	Player(Vetor2F pos);
+	Player(Vetor2F pos = {0,0});
 	~Player();
 	void inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor);
 	void atualizar(float t);

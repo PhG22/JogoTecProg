@@ -30,7 +30,7 @@ namespace gerenciadorTiles {
 			const Vetor2F posicao;
 			const Vetor2U tamanho;
 		}Info;
-		
+
 	private:
 		TileMap tilemap;
 		Vetor2U DimensoesTiles;
@@ -38,7 +38,7 @@ namespace gerenciadorTiles {
 		vector <Tile*> Tiles;
 
 	public:
-		GerenciadorTiles(vector<Tile*> tiles, Vetor2U dimensoes, const char* caminhoArquivo);
+		GerenciadorTiles(vector<Tile*> tiles, Vetor2U dimensoes = {0,0}, const char* caminhoArquivo = nullptr);
 		GerenciadorTiles() {}
 		~GerenciadorTiles();
 		void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge);

@@ -30,7 +30,7 @@ namespace gerenciadorEstados {
 		void encerrar(Event ev);
 
 	public:
-		Fase(GerenciadorGrafico& gg, Player* pjog);
+		Fase(GerenciadorGrafico& gg, Player* pjog = nullptr);
 		~Fase();
 		int executar();
 

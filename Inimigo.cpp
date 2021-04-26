@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, IdsDesenhaveis::inimigo, "Resources/Textures/Enemy.png") {
+Inimigo::Inimigo(Vetor2F pos, Vetor2F vel, int v) : Colidivel(pos, vel, IdsDesenhaveis::inimigo, "Resources/Textures/mumia.png") {
 
 }
 

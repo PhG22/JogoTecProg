@@ -21,7 +21,7 @@ namespace gerenciadorEstados {
 		GerenciadorGrafico& gGraf;
 		Player* pJog;
 	public:
-		GerenciadorCenas(GerenciadorGrafico& gg, Player* pjog);
+		GerenciadorCenas(GerenciadorGrafico& gg, Player* pjog = nullptr);
 		~GerenciadorCenas();
 		void inicializar(){}
 	protected:

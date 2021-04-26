@@ -21,7 +21,8 @@ namespace gerenciadorColisoes {
 			final,
 			barreira,
 			vida,
-			inimigo
+			inimigo,
+			padrao
 
 		};
 	}
