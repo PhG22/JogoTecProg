@@ -8,6 +8,8 @@
 
 20/04 - 14:00 (problemas com Tilemap) - Monitor: Lucas Eduardo Bonacio Skora
 
+26/04 - 20:00 (problemas com colisão entidade-tile) - Monitor: Augusto Modrei Correia
+
 # Reuniões com Professor
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
 
