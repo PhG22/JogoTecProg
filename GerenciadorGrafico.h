@@ -6,6 +6,7 @@
 using namespace sf;
 #include "stdafx.h"
 #include "Vetor2D.h"
+#include "Cor.h"
 
 namespace gerenciadorGrafico {
 	class GerenciadorGrafico
@@ -14,6 +15,9 @@ namespace gerenciadorGrafico {
 		RenderWindow* janela;
 		View camera;
 		map<const string, Texture*> texturas;
+
+		//Ex8
+		sf::Font Fonte;
 
 	public:
 		GerenciadorGrafico();
@@ -25,6 +29,11 @@ namespace gerenciadorGrafico {
 		void centralizar(const Vetor2F centro);
 		RenderWindow* getJanela() const { return janela; }
 		const Vetor2U getTamanho(const string caminho);
+
+		//Ex8
+		void desenharRetanguloSolido(const Vetor2F posCentro, const Vetor2F tamRetangulo, const Cor cor)const;
+		void desenharTexto(const std::string texto, const Vetor2F posTexto, const unsigned long tamTexto, const bool centralizar = true)const;
+		Vetor2F getPosicaoMouse()const;
 
 	};
 }

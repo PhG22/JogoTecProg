@@ -9,6 +9,7 @@ namespace gerenciadorGrafico {
 
 		janela->setView(camera);
 		janela->setKeyRepeatEnabled(false);
+		Fonte.loadFromFile("Resources/Fonte/Newathenaunicode-EP3l.ttf");
 
 	}
 
@@ -70,6 +71,41 @@ namespace gerenciadorGrafico {
 		Vector2u dim = (texturas[caminho])->getSize();
 
 		return Vetor2U(dim.x, dim.y);
+	}
+
+	//Ex8
+	void GerenciadorGrafico::desenharRetanguloSolido(const Vetor2F posCentro, const Vetor2F tamRetangulo, const Cor cor)const
+	{
+		sf::RectangleShape RetanguloSolido = sf::RectangleShape({tamRetangulo.x, tamRetangulo.y});
+		RetanguloSolido.setFillColor({ cor.getRed(), cor.getGreen(), cor.getBlue(), cor.getOpacity() });
+		RetanguloSolido.setOrigin(tamRetangulo.x / 2, tamRetangulo.y / 2);
+		RetanguloSolido.setPosition(posCentro.x, posCentro.y);
+		janela->draw(RetanguloSolido);
+	}
+
+	void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor2F posTexto, const unsigned long tamTexto, const bool centralizar)const
+	{
+		sf::Text txt = sf::Text(texto, Fonte, tamTexto);
+		txt.setFillColor(sf::Color::White);
+		if (centralizar)
+		{
+			sf::FloatRect tam = txt.getGlobalBounds();
+			txt.setOrigin(tam.width / 2, tam.height / 2);
+		}
+		txt.setPosition(posTexto.x, posTexto.y);
+		janela->draw(txt);
+	}
+
+	Vetor2F GerenciadorGrafico::getPosicaoMouse()const
+	{
+		sf::Vector2i posRelacaoJanela = sf::Mouse::getPosition(*janela); //Posição do cursor, em relação a janela atual
+		sf::Vector2u tamanhoJanela = janela->getSize(); //Tamanho de toda a janela
+		sf::Vector2f tamanhoCamera = camera.getSize(); //Tamanho (zoom) da câmera
+		sf::Vector2f posicaoCamera = camera.getCenter() - tamanhoCamera / 2.0f; //Posição da câmera, em relação ao início da janela (posição 0,0 da janela)
+
+		return {(posRelacaoJanela.x / tamanhoJanela.x) * tamanhoCamera.x + posicaoCamera.x,
+				(posRelacaoJanela.y / tamanhoJanela.y)* tamanhoCamera.y + posicaoCamera.y
+			   }; //No final, é feita uma divisão do tamanho da tela pela proporção da câmera
 	}
 
 }
