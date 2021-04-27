@@ -10,6 +10,8 @@
 
 26/04 - 20:00 (problemas com colisão entidade-tile) - Monitor: Augusto Modrei Correia
 
+27/04 - 13:25 (problemas com colisão entidade-tile e dicas de implementação de projetéis) - Monitor: Lucas Eduardo Bonacio Skora
+
 # Reuniões com Professor
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
 
