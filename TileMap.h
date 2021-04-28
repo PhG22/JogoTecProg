@@ -31,7 +31,7 @@ namespace gerenciadorTiles {
 
 
 	public:
-		TileMap(const char* caminhoarquivo = "");
+		TileMap(const char* caminhoarquivo = nullptr);
 		~TileMap();
 		const Vetor2U getDimensoesMapa()const;
 		void imprimirMapa()const;

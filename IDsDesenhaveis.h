@@ -22,6 +22,7 @@ namespace gerenciadorColisoes {
 			barreira,
 			vida,
 			inimigo,
+			projetil,
 			padrao
 
 		};

@@ -3317,8 +3317,8 @@ TileMap
 <XPD:REF name="Head">K/z7C1qMpUSYnlo13MJoGwAA</XPD:REF>
 <XPD:REF name="Tail">Q28pvLtNZk2HWXul+OaIDAAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="OcZqs/Au602y3ca1xPUXPwAA">
-<XPD:ATTR name="Alpha" type="real">-0,0455824374601798</XPD:ATTR>
-<XPD:ATTR name="Distance" type="real">285,296337165411</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0,299947127396159</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">101,533245786787</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">conhecer</XPD:ATTR>
 <XPD:REF name="Model">Y+zpaY1EwEyje0CpghJ0EwAA</XPD:REF>
 </XPD:OBJ>
@@ -3427,8 +3427,8 @@ TileMap
 <XPD:REF name="Model">V0yQQv0pl0Sr7tWBRsWE5QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="TailRoleNameLabel" type="EdgeLabelView" guid="mvJtYN97yUeRcxJMwIMiRAAA">
-<XPD:ATTR name="Alpha" type="real">-0,0541137819787365</XPD:ATTR>
-<XPD:ATTR name="Distance" type="real">240,351825455934</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0,208465198910963</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">106,301458127346</XPD:ATTR>
 <XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">+conhecer</XPD:ATTR>
 <XPD:REF name="Model">5fvdbLiz+Uan4O2ChaD2FAAA</XPD:REF>

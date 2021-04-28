@@ -21,7 +21,7 @@ namespace gerenciadorTiles {
 
 	void Tile::desenhar(GerenciadorGrafico& gGraf, const Vetor2F posicao)const
 	{
-		gGraf.desenhar(caminho, posicao);
+			gGraf.desenhar(caminho, posicao);
 	}
 
 	const IdsDesenhaveis::IDsDesenhaveis Tile::getId()const

@@ -10,6 +10,7 @@ using namespace gerenciadorEventos;
 using namespace gerenciadorColisoes;
 using namespace IdsDesenhaveis;
 
+
 namespace gerenciadorTiles {
 	class Tile
 	{
@@ -17,7 +18,6 @@ namespace gerenciadorTiles {
 		const IdsDesenhaveis::IDsDesenhaveis Id;
 		const char* caminho;
 		Vetor2F Tamanho;
-		//GerenciadorGrafico* gg;
 
 	public:
 		Tile(const IdsDesenhaveis::IDsDesenhaveis ID = padrao, const char* caminhoArquivo = nullptr, Vetor2F tamanho = -1.0);

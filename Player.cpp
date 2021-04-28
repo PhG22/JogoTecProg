@@ -20,6 +20,8 @@ void Player::atualizar(float t)
 	position.x = position.x + (v.x * t);
 	position.y = position.y + (v.y * t);
 
+	//cout << position << endl;
+
 }
 
 void Player::desenhar(GerenciadorGrafico& janela)
@@ -73,11 +75,21 @@ void Player::tratarEvento(const sf::Event& ev)
 }
 
 void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
-	
-	if (idOutro == IdsDesenhaveis::inimigo)
+
+	if (idOutro == IdsDesenhaveis::inimigo) {
 		cout << "ataquei" << endl;
+		Vetor2F dist = position - posOutro;
+
+		v = v * -1;
+		position.x = position.x + dist.x * 0.1;
+	}
+
+	else if (idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso)
+		v.y = 0;
+	/*
 	else if (idOutro == IdsDesenhaveis::moeda)
 		cout << "quem quer dinheiro?" << endl;
+	  //score += 10;
 	else if (idOutro == IdsDesenhaveis::agua)
 		cout << "splash" << endl;
 	else if (idOutro == IdsDesenhaveis::final)
@@ -86,13 +98,9 @@ void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro)
 		cout << "morri!" << endl;
 	else if (idOutro == IdsDesenhaveis::vida)
 		cout << "1up" << endl;
-	else if (idOutro == IdsDesenhaveis::chao)
-		v.y = 0;
+	else if (idOutro == IdsDesenhaveis::projetil)
+		cout << "tiro!" << endl;
 	else
-		cout << "colisao generica" << endl;
+		cout << "colisao generica" << endl;*/
 
-	/*Vetor2F dist = position - posOutro;
-
-	v = v * -1;
-	position = position + dist * 0.1;*/
 }

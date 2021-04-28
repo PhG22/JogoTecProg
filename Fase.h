@@ -10,7 +10,9 @@ using namespace gerenciadorColisoes;
 #include "GerenciadorTiles.h"
 using namespace gerenciadorTiles;
 #include "ListaDesenhaveis.h"
+#include <queue>
 
+class Projetil;
 
 namespace gerenciadorEstados {
 
@@ -26,6 +28,11 @@ namespace gerenciadorEstados {
 		unsigned int IDJanelaFechada;
 		bool rodando;
 		Player* pJog;
+		//queue<Projetil*> filaProjeteis;
+
+
+		Texture BackgroundTexture;
+		Sprite background;
 
 		void encerrar(Event ev);
 
@@ -33,6 +40,10 @@ namespace gerenciadorEstados {
 		Fase(GerenciadorGrafico& gg, Player* pjog = nullptr);
 		~Fase();
 		int executar();
+		void inserirProjetil(Projetil* pProj);
+		//void deletarProjetil();
+		//void esvaziarProjeteis();
+
 
 
 

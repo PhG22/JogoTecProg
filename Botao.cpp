@@ -1,11 +1,15 @@
 #include "Botao.h"
 
-Botao::Botao(Vetor2F pos, Vetor2F tam, std::string texto, std::function<void(void)> Apertado, unsigned int TamTexto, Cor Cor)
+Botao::Botao(Vetor2F pos, Vetor2F tam, std::string texto, std::function<void(void)> Apertado, unsigned int TamTexto, Cor Cor) : 
+	Posicao{pos},
+	Tamanho{tam},
+	Texto{texto},
+	tamTexto{TamTexto}
 {
-	Posicao = pos;
-	Tamanho = tam;
-	Texto = texto;
-	tamTexto = TamTexto;
+	//Posicao = pos;
+	//Tamanho = tam;
+	//Texto = texto;
+	//tamTexto = TamTexto;
 }
 
 Botao::~Botao()

@@ -32,15 +32,17 @@ namespace gerenciadorTiles {
 	}
 	vector<GerenciadorTiles::Info> GerenciadorTiles::checarColisoes(const IdsDesenhaveis::IDsDesenhaveis id, Vetor2F posicao, Vetor2U tamanho)
 	{
-		unsigned int up = (int)floor(((unsigned int)posicao.y - tamanho.y / 2) / (unsigned int)DimensoesTiles.y);
-		unsigned int down = (int)ceil(((unsigned int)posicao.y + tamanho.y / 2) / (unsigned int)DimensoesTiles.y);
-		unsigned int left = (int)floor(((unsigned int)posicao.x - tamanho.x / 2) / (unsigned int)DimensoesTiles.x);
-		unsigned int right = (int)ceil(((unsigned int)posicao.x + tamanho.x / 2) / (unsigned int)DimensoesTiles.x);
+
+		unsigned int up = floor((posicao.y - tamanho.y / 2) / DimensoesTiles.y);
+		unsigned int down = ceil((posicao.y + tamanho.y / 2) / DimensoesTiles.y);
+		unsigned int left = (posicao.x - tamanho.x / 2) / DimensoesTiles.x;
+		unsigned int right = ceil((posicao.x + tamanho.x / 2) / DimensoesTiles.x);
 
 		vector<Info> colisoes;
 
 		if (up < 0 || left < 0 || down > (int)tilemap.getDimensoesMapa().y || left >= (int)tilemap.getDimensoesMapa().x)
 			return colisoes;
+
 
 		for (int i = up; i < down; i++) {
 			for (int j = left; j < right; j++) {
