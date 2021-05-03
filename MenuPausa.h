@@ -2,14 +2,14 @@
 
 #include "Menu.h"
 
-class MenuPrincipal: public Menu
+class MenuPausa : public Menu
 {
 private:
 	void inicializar() override;
 
 public:
-	MenuPrincipal(GerenciadorGrafico& Ggraf);
-	~MenuPrincipal();
+	MenuPausa(GerenciadorGrafico& Ggraf);
+	~MenuPausa();
 
 };
 

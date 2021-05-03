@@ -10,7 +10,6 @@ using namespace gerenciadorColisoes;
 #include "GerenciadorTiles.h"
 using namespace gerenciadorTiles;
 #include "ListaDesenhaveis.h"
-#include <queue>
 
 class Projetil;
 
@@ -18,7 +17,7 @@ namespace gerenciadorEstados {
 
 	class Fase : public Estado
 	{
-	private:
+	protected:
 		GerenciadorGrafico& gGraf;
 		GerenciadorEventos gEvent;
 		GerenciadorColisoes gColisor;
@@ -27,8 +26,8 @@ namespace gerenciadorEstados {
 		Clock timer;
 		unsigned int IDJanelaFechada;
 		bool rodando;
+		bool pausado;
 		Player* pJog;
-		//queue<Projetil*> filaProjeteis;
 
 
 		Texture BackgroundTexture;
@@ -37,15 +36,13 @@ namespace gerenciadorEstados {
 		void encerrar(Event ev);
 
 	public:
-		Fase(GerenciadorGrafico& gg, Player* pjog = nullptr);
+		Fase(GerenciadorGrafico& gg, Player* pjog = nullptr, const char* caminhoTilemap = nullptr);
 		~Fase();
-		int executar();
+		virtual void inicializar() = 0;
+		virtual int executar() = 0;
 		void inserirProjetil(Projetil* pProj);
-		//void deletarProjetil();
-		//void esvaziarProjeteis();
-
-
-
+		void pausar();
+		void despausar();
 
 	};
 

@@ -4,9 +4,8 @@ namespace gerenciadorGrafico {
 
 	GerenciadorGrafico::GerenciadorGrafico() :
 		janela{ new RenderWindow(VideoMode(800, 600), "Jogo" )},
-		camera{Vector2f(800, 600), Vector2f(800, 600)}
+		camera{Vector2f(400, 300), Vector2f(800, 600)}
 	{
-
 		janela->setView(camera);
 		janela->setKeyRepeatEnabled(false);
 		Fonte.loadFromFile("Resources/Fonte/Newathenaunicode-EP3l.ttf");
@@ -99,13 +98,24 @@ namespace gerenciadorGrafico {
 	Vetor2F GerenciadorGrafico::getPosicaoMouse()const
 	{
 		sf::Vector2i posRelacaoJanela = sf::Mouse::getPosition(*janela); //Posição do cursor, em relação a janela atual
-		sf::Vector2u tamanhoJanela = janela->getSize(); //Tamanho de toda a janela
-		sf::Vector2f tamanhoCamera = camera.getSize(); //Tamanho (zoom) da câmera
-		sf::Vector2f posicaoCamera = camera.getCenter() - tamanhoCamera / 2.0f; //Posição da câmera, em relação ao início da janela (posição 0,0 da janela)
+		Vetor2F coord = { janela->mapPixelToCoords(posRelacaoJanela).x, janela->mapPixelToCoords(posRelacaoJanela).y };
+		//sf::Vector2u tamanhoJanela = janela->getSize(); //Tamanho de toda a janela
+		//sf::Vector2f tamanhoCamera = camera.getSize(); //Tamanho (zoom) da câmera
+		//sf::Vector2f posicaoCamera = camera.getCenter() - tamanhoCamera / 2.0f; //Posição da câmera, em relação ao início da janela (posição 0,0 da janela)
 
-		return {(posRelacaoJanela.x / tamanhoJanela.x) * tamanhoCamera.x + posicaoCamera.x,
+		/*return {(posRelacaoJanela.x / tamanhoJanela.x) * tamanhoCamera.x + posicaoCamera.x,
 				(posRelacaoJanela.y / tamanhoJanela.y)* tamanhoCamera.y + posicaoCamera.y
-			   }; //No final, é feita uma divisão do tamanho da tela pela proporção da câmera
+			   }; //No final, é feita uma divisão do tamanho da tela pela proporção da câmera*/
+
+		return coord;
 	}
 
+	void GerenciadorGrafico::resizeCamera(Vetor2F tam, Vetor2F pos) {
+
+		camera.setSize(tam.x, tam.y);
+		camera.setCenter(pos.x, pos.y);
+		janela->setView(camera);
+
+	}
+	
 }

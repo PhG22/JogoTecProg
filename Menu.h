@@ -19,11 +19,12 @@ protected:
 	GerenciadorGrafico& gg;
 
 	void setCodigoRetorno(const int codigo);
+	virtual void inicializar() = 0;
 
 public:
 
 	Menu(GerenciadorGrafico& GG);
-	~Menu() {};
+	virtual ~Menu() {};
 
 	int executar() override; //comando para realizar para auxiliar numa sobrecarga de métodos
 };

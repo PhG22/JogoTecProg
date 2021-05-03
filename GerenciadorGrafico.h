@@ -7,6 +7,7 @@ using namespace sf;
 #include "stdafx.h"
 #include "Vetor2D.h"
 #include "Cor.h"
+using namespace gerenciadorBotoes;
 
 namespace gerenciadorGrafico {
 	class GerenciadorGrafico
@@ -34,6 +35,8 @@ namespace gerenciadorGrafico {
 		void desenharRetanguloSolido(const Vetor2F posCentro, const Vetor2F tamRetangulo, const Cor cor)const;
 		void desenharTexto(const std::string texto, const Vetor2F posTexto, const unsigned long tamTexto, const bool centralizar = true)const;
 		Vetor2F getPosicaoMouse()const;
+
+		void resizeCamera(Vetor2F tam, Vetor2F pos);
 
 	};
 }

@@ -1,9 +1,8 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(Vetor2F pos, Vetor2F vel, int v, const char* caminhoTextura, int posF) : 
+Inimigo::Inimigo(Vetor2F pos, Vetor2F vel, int v, const char* caminhoTextura) :
 	Colidivel(pos, vel, IdsDesenhaveis::inimigo, caminhoTextura),
-	posIni{0},
-	posFim{posF}
+	vida{ v }
 {
 
 }
@@ -15,21 +14,15 @@ Inimigo::~Inimigo() {
 void Inimigo::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
 	if (idOutro == IdsDesenhaveis::player)
 		cout << "nhac" << endl;
-	//else
-		//cout << "bateu" << endl;
-	/*if (idOutro != IdsDesenhaveis::projetil) {
-		Vetor2F dist = position - posOutro;
-
-		v = v * -1;
-		position = position + dist * 0.1;
-	}*/
+	if (idOutro == IdsDesenhaveis::projetilPlayer)
+		vida -= 50;
+	
 }
 
 void Inimigo::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor) {
 	janela.carregarTextura(caminho);
 	dimensoes = janela.getTamanho(caminho);
 	gColisor.addColidivel(this);
-	posIni = position.x;
 }
 
 void Inimigo::atualizar(float t) {
@@ -37,9 +30,11 @@ void Inimigo::atualizar(float t) {
 	position.x = position.x + (v.x * t);
 	position.y = position.y + (v.y * t);
 
-	if (position.x <= posIni)
-		v.x = 100;
-	else if (position.x >= posFim)
-		v.x = -100;
+}
 
+void Inimigo::Morrer() {
+		position.x = -11000;
+		position.y = -11000;
+		v.x = 0;
+		v.y = 0;
 }

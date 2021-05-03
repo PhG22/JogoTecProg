@@ -23,6 +23,7 @@ namespace gerenciadorColisoes {
 			vida,
 			inimigo,
 			projetil,
+			projetilPlayer,
 			padrao
 
 		};

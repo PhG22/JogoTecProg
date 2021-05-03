@@ -10,8 +10,14 @@ Projetil::~Projetil() {
 }
 
 void Projetil::colidir(const IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
-	if (idOutro == IdsDesenhaveis::player || idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso)
-		position = { -10000, -10000 };
+	if (ID == projetil) {
+		if (idOutro == IdsDesenhaveis::player || idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso || idOutro == IdsDesenhaveis::final)
+			position = { -10000, -10000 };
+	}
+	else if (ID == projetilPlayer) {
+		if (idOutro == IdsDesenhaveis::inimigo || idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso || idOutro == IdsDesenhaveis::final)
+			position = { -10000, -10000 };
+	}
 }
 
 void Projetil::atualizar(float t) {

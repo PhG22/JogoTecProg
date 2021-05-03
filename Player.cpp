@@ -1,16 +1,20 @@
 #include "Player.h"
+#include "Fase.h"
+#include "Projetil.h"
 
-Player::Player(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::player , "Resources/Textures/player.png")
-{}
+Player::Player(Vetor2F pos) : Colidivel(pos, Vetor2F(), IdsDesenhaveis::player, "Resources/Textures/player.png") {
+
+}
 
 Player::~Player()
 {}
 
-void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor)
+void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor, Fase* pfase)
 {
 	janela.carregarTextura(caminho);
 	dimensoes = janela.getTamanho(caminho);
 	gColisor.addColidivel(this);
+	pFase = pfase;
 
 	chaveListener = gEvent.addListenerTeclado([this](const Event ev) {tratarEvento(ev); });
 }
@@ -20,7 +24,7 @@ void Player::atualizar(float t)
 	position.x = position.x + (v.x * t);
 	position.y = position.y + (v.y * t);
 
-	//cout << position << endl;
+	cout << position << endl;
 
 }
 
@@ -48,6 +52,12 @@ void Player::tratarEvento(const sf::Event& ev)
 			case Keyboard::Key::S:
 				v.y = 300;
 				break;
+			case Keyboard::Key::Space:
+				atirar();
+				break;
+			case Keyboard::Key::Escape:
+				pFase->pausar();
+				break;
 			default:
 				break;
 		}
@@ -68,6 +78,9 @@ void Player::tratarEvento(const sf::Event& ev)
 			case Keyboard::Key::S:
 				v.y = 0;
 				break;
+			case Keyboard::Key::Escape:
+				pFase->despausar();
+				break;
 			default:
 				break;
 		}
@@ -86,21 +99,16 @@ void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro)
 
 	else if (idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso)
 		v.y = 0;
-	/*
-	else if (idOutro == IdsDesenhaveis::moeda)
-		cout << "quem quer dinheiro?" << endl;
-	  //score += 10;
-	else if (idOutro == IdsDesenhaveis::agua)
-		cout << "splash" << endl;
-	else if (idOutro == IdsDesenhaveis::final)
-		cout << "to livre porra!" << endl;
-	else if (idOutro == IdsDesenhaveis::espinho)
-		cout << "morri!" << endl;
-	else if (idOutro == IdsDesenhaveis::vida)
-		cout << "1up" << endl;
-	else if (idOutro == IdsDesenhaveis::projetil)
-		cout << "tiro!" << endl;
-	else
-		cout << "colisao generica" << endl;*/
+}
 
+void Player::setPos(Vetor2F pos) {
+	position = pos;
+}
+
+void Player::atirar() {
+	if (timer.getElapsedTime().asSeconds() >= 1.f) {
+		Projetil* p = new Projetil(position, {500,0}, IdsDesenhaveis::projetilPlayer, "Resources/Textures/projetilPlayer.png");
+		pFase->inserirProjetil(p);
+		timer.restart();
+	}
 }

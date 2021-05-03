@@ -11,7 +11,12 @@ using namespace gerenciadorGrafico;
 
 enum IdRetorno {
 	continuar,
-	terminar
+	terminar,
+	IrPrimeiraFase,
+	IrSegundaFase,
+	voltar,
+	IrMenuPausa,
+	IrMenu
 };
 
 namespace gerenciadorEstados {

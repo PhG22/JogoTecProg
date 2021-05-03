@@ -6,7 +6,7 @@
 
 namespace gerenciadorEstados {
 
-	Fase::Fase(GerenciadorGrafico& gg, Player* pjog) :
+	Fase::Fase(GerenciadorGrafico& gg, Player* pjog, const char* caminoTileMap) :
 		gGraf{gg},
 		pJog{pjog},
 		rodando{ true },
@@ -30,65 +30,13 @@ namespace gerenciadorEstados {
 			 new Tile{IDsDesenhaveis::barreira, "Resources/Textures/vazioV2.png", {32.0f, 32.0f}},
 			 new Tile{IDsDesenhaveis::vida, "Resources/Textures/vida.png", {32.0f, 32.0f}}
 
-			}, { 32, 32 }, "Resources/Tilemaps/fase02.json" },
-		IDJanelaFechada{ gEvent.addListenerMisc([this](const Event& ev) {encerrar(ev); }) }
-	{
-		listaDesenhaveis.inserir(new Atirador(Vetor2F(321.f, 242.f), Vetor2F(0, 0), this, pJog));
-		listaDesenhaveis.inserir(new Atirador(Vetor2F(547.f, 209.f), Vetor2F(0, 0), this, pJog));
-		listaDesenhaveis.inserir(new Atirador(Vetor2F(761.f, 177.f), Vetor2F(0, 0), this, pJog));
-		listaDesenhaveis.inserir(new Atirador(Vetor2F(3212.f, 273.f), Vetor2F(0, 0), this, pJog));
-		listaDesenhaveis.inserir(new Atirador(Vetor2F(3526.f, 209.f), Vetor2F(0, 0), this, pJog));
-
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(1459.f, 242.f), Vetor2F(0, 0),100 , "Resources/Textures/mumia.png", 1584));
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(1811.f, 337.f), Vetor2F(0, 0),100 , "Resources/Textures/mumia.png", 2032));
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(2156.f, 304.f), Vetor2F(0, 0),100 , "Resources/Textures/mumia.png", 2278));
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(4500.f, 300.f), Vetor2F(0, 0),100 , "Resources/Textures/mumia.png", 4625));
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(4680.f, 300.f), Vetor2F(0, 0),100 , "Resources/Textures/mumia.png", 4881));
-
-		listaDesenhaveis.inserir(new Inimigo(Vetor2F(5258.f, 305.f), Vetor2F(0, 0),100 , "Resources/Textures/Anubis.png", 5760));
-
-
-		pJog->inicializar(gGraf, gEvent, gColisor);
-		listaDesenhaveis.inicializar(gGraf, gEvent, gColisor);
-
-		gTiles.inicializar(gGraf, gEvent);
-
-		gEvent.setJanela(gGraf.getJanela());
-		gColisor.setGerenciadorTiles(&gTiles);
-		BackgroundTexture.loadFromFile("Resources/Textures/background2.png");
-
-		background.setTexture(BackgroundTexture);
-
-		background.setScale(5.02, 0.69);
-
-		executar();
-	
-	}
+			}, { 32, 32 }, caminoTileMap},
+		IDJanelaFechada{ gEvent.addListenerMisc([this](const Event& ev) {encerrar(ev); }) },
+		pausado{false}
+	{}
 	
 	Fase::~Fase() {
 		listaDesenhaveis.destruir();
-		//esvaziarProjeteis();
-	}
-	
-	int Fase::executar() {
-
-		gGraf.getJanela()->draw(background);
-
-		gEvent.tratarEventos();
-
-		pJog->atualizar(timer.getElapsedTime().asSeconds());
-		listaDesenhaveis.atualizar(timer.restart().asSeconds());
-		gColisor.tratarColisoes();
-
-		gTiles.desenhar(gGraf);
-		pJog->desenhar(gGraf);
-		listaDesenhaveis.desenhar(gGraf, gEvent);
-
-		//deletar entidades, dica do Skora: colocar entidades a serem deletadas num set que será deletado ao fim do loop e inicializar projeteis via
-		//metodo da fase em vez de colocá-los na lista.
-
-		if (!rodando) return terminar;
-		else return continuar;
 	}
 	
 	void Fase::encerrar(Event ev) {
@@ -101,6 +49,15 @@ namespace gerenciadorEstados {
 			listaDesenhaveis.inserir(pProj);
 		}
 	}
+
+	void Fase::pausar() {
+		pausado = true;
+	}
+
+	void Fase::despausar() {
+		pausado = false;
+	}
+
 	/*void Fase::deletarProjetil() {
 		delete filaProjeteis.front();
 		filaProjeteis.pop();
