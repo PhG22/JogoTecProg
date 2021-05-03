@@ -16,3 +16,5 @@
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
 
 23/04 - 15:00 (Progresso do jogo, orientações e correção do diagrama de classes em UML)
+
+30/04 - 15:00 (Progresso do jogo, orientações e correção do diagrama de classes em UML)
