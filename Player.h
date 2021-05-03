@@ -11,6 +11,7 @@ class Player : public Colidivel
 private:
 	unsigned int chaveListener;
 	int vida;
+	long int score;
 	Fase* pFase;
 	Clock timer;
 
@@ -25,5 +26,8 @@ public:
 	void colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro);
 	void setPos(Vetor2F pos);
 	void atirar();
+	void addScore(long int pts);
+	void resetScore();
+	long int getScore();
 };
 

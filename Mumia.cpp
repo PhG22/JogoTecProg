@@ -1,7 +1,7 @@
 #include "Mumia.h"
 
-Mumia::Mumia(Vetor2F pos, Vetor2F vel, const char* caminhoTextura, int posF) :
-Inimigo(pos, vel, 100, caminhoTextura),
+Mumia::Mumia(Vetor2F pos, Vetor2F vel, const char* caminhoTextura, int posF, Player* pjog) :
+Inimigo(pos, vel, 100, caminhoTextura, pjog, 150),
 posIni{ 0 },
 posFim{ posF }
 {

@@ -2,7 +2,7 @@
 #include "Projetil.h"
 #include "Fase.h"
 
-Atirador::Atirador(Vetor2F pos/* = { 0,0 }*/, Vetor2F vel /*= { 0,0 }*/, Fase* pfase /* = nullptr*/, Player* pjog) : Inimigo(pos, vel, 50, "Resources/Textures/atirador.png"), pFase{ pfase }, pJog{pjog}{
+Atirador::Atirador(Vetor2F pos/* = { 0,0 }*/, Vetor2F vel /*= { 0,0 }*/, Fase* pfase /* = nullptr*/, Player* pjog) : Inimigo(pos, vel, 50, "Resources/Textures/atirador.png", pjog, 100), pFase{ pfase }{
 
 }
 
@@ -20,10 +20,6 @@ void Atirador::atualizar(float t) {
 		timer.restart();
 	}
 
-}
-
-void Atirador::setPlayer(Player* pjog) {
-	pJog = pjog;
 }
 
 void Atirador::atirar() {

@@ -3,11 +3,10 @@
 #include "Fase.h"
 
 Chefao::Chefao(Vetor2F pos, Vetor2F vel, Fase* pfase, Player* pjog, int posF) :
-Inimigo(pos, vel, 500, "Resources/Textures/Anubis.png"),
+Inimigo(pos, vel, 500, "Resources/Textures/Anubis.png", pjog, 1000),
 posIni{ 0 },
 posFim{ posF },
-pFase{ pfase },
-pJog{ pjog }
+pFase{ pfase }
 {
 
 }
@@ -43,10 +42,6 @@ void Chefao::atualizar(float t) {
 		atirar();
 		timer.restart();
 	}
-}
-
-void Chefao::setPlayer(Player* pjog) {
-	pJog = pjog;
 }
 
 void Chefao::atirar() {

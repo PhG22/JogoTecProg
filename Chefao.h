@@ -12,7 +12,7 @@ class Chefao : public Inimigo
 private:
 	int posIni;
 	int posFim;
-	Player* pJog;
+	//Player* pJog;
 	Fase* pFase;
 	Clock timer;
 
@@ -22,6 +22,5 @@ public:
 	void inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor);
 	void atualizar(float t);
 	void atirar();
-	void setPlayer(Player* pjog);
 };
 

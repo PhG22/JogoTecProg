@@ -24,13 +24,13 @@ void Player::atualizar(float t)
 	position.x = position.x + (v.x * t);
 	position.y = position.y + (v.y * t);
 
-	cout << position << endl;
+	cout << score << endl;
 
 }
 
 void Player::desenhar(GerenciadorGrafico& janela)
 {
-	janela.centralizar(position);
+	janela.centralizar({ position.x + 150, position.y - 100 });
 
 	janela.desenhar(caminho, position);
 }
@@ -111,4 +111,16 @@ void Player::atirar() {
 		pFase->inserirProjetil(p);
 		timer.restart();
 	}
+}
+
+void Player::addScore(long int pts){
+	score += pts;
+}
+
+void Player::resetScore() {
+	score = 0;
+}
+
+long int Player::getScore() {
+	return score;
 }

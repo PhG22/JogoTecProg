@@ -22,18 +22,19 @@ void Fase01::inicializar() {
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(5452.f, 274.f), Vetor2F(0, 0), this, pJog));
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(5933.f, 309.f), Vetor2F(0, 0), this, pJog));
 
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(330.f, 273.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 493));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(623.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 845));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(1204.f, 333.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 1424));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(1833.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 2002));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(3656.f, 337.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 3824));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(4111.f, 337.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 4366));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(4908.f, 338.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5100));
-	listaDesenhaveis.inserir(new Mumia(Vetor2F(5711.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5804));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(330.f, 273.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 493, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(623.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 845, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(1204.f, 333.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 1424, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(1833.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 2002, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(3656.f, 337.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 3824, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(4111.f, 337.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 4366, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(4908.f, 338.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5100, pJog));
+	listaDesenhaveis.inserir(new Mumia(Vetor2F(5711.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5804, pJog));
 
 
 	pJog->inicializar(gGraf, gEvent, gColisor, this);
-	pJog->setPos({ 48,368 });
+	pJog->setPos({ 107,368 });
+	pJog->resetScore();
 	listaDesenhaveis.inicializar(gGraf, gEvent, gColisor);
 
 	gTiles.inicializar(gGraf, gEvent);
