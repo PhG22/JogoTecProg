@@ -40,7 +40,6 @@ void PromessaString::adquirir(const sf::Event& e)
 {
 	if (e.type == sf::Event::EventType::TextEntered) //cCondicional para saber que o usuário digitou um texto
 	{
-		cout << e.text.unicode << endl;
 		if (Texto.size() <= comprimentoMax)
 		{
 			char c;
@@ -50,6 +49,9 @@ void PromessaString::adquirir(const sf::Event& e)
 
 			else
 				c = '\0';
+
+			if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9') || c == ' ')
+				Texto = Texto + c;
 		}
 	}
 	else if (e.type == sf::Event::EventType::KeyReleased) //Condicional para saber se a string terminou ou se está apagando texto
