@@ -26,6 +26,6 @@ public:
 	Menu(GerenciadorGrafico& GG);
 	virtual ~Menu() {};
 
-	int executar() override; //comando para realizar para auxiliar numa sobrecarga de métodos
+	virtual int executar() override; //comando para realizar para auxiliar numa sobrecarga de métodos
 };
 

@@ -16,7 +16,8 @@ namespace gerenciadorEventos {
 
 			}
 			else if (event.type == Event::KeyPressed
-				  || event.type == Event::KeyReleased) {
+				  || event.type == Event::KeyReleased
+				  || event.type == Event::TextEntered) {
 				 
 				for (auto i : listenerTeclado) {
 					i.second(event);

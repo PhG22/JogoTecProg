@@ -2,11 +2,11 @@
 
 namespace gerenciadorBotoes {
 	Botao::Botao(Vetor2F pos, Vetor2F tam, std::string texto, std::function<void(void)> apertado, unsigned int TamTexto, Cor Cor) :
+		Apertado{ apertado },
 		Posicao{ pos },
 		Tamanho{ tam },
 		cor{ Cor },
 		tamTexto{ TamTexto },
-		Apertado{ apertado },
 		Texto{ texto }
 	{
 		//Posicao = pos;
@@ -20,7 +20,7 @@ namespace gerenciadorBotoes {
 
 	}
 
-	void Botao::desenhar(GerenciadorGrafico& gGraf)
+	void Botao::desenhar(GerenciadorGrafico& gGraf)const
 	{
 		gGraf.desenharRetanguloSolido(Posicao, Tamanho, cor);
 		gGraf.desenharTexto(Texto, Posicao, tamTexto);
