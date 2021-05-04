@@ -32,7 +32,7 @@ namespace gerenciadorEstados {
 
 			}, { 32, 32 }, caminoTileMap},
 		IDJanelaFechada{ gEvent.addListenerMisc([this](const Event& ev) {encerrar(ev); }) },
-		pausado{false}
+		pausado{ false }
 	{}
 	
 	Fase::~Fase() {

@@ -49,24 +49,27 @@ void Fase02::inicializar() {
 
 int Fase02::executar() {
 
+	float dt = tempoPausa.restart().asSeconds();
 	gGraf.getJanela()->draw(background);
 
 	gEvent.tratarEventos();
 
-	pJog->atualizar(timer.getElapsedTime().asSeconds());
-	listaDesenhaveis.atualizar(timer.restart().asSeconds());
+	pJog->atualizar(timer.getElapsedTime().asSeconds() - dt);
+	listaDesenhaveis.atualizar(timer.restart().asSeconds() - dt);
 	gColisor.tratarColisoes();
 
 	gTiles.desenhar(gGraf);
 	pJog->desenhar(gGraf);
 	listaDesenhaveis.desenhar(gGraf, gEvent);
 
-	//deletar entidades, dica do Skora: colocar entidades a serem deletadas num set que será deletado ao fim do loop e inicializar projeteis via
-	//metodo da fase em vez de colocá-los na lista.
+	//deletar entidades, dica do Skora: colocar entidades a serem deletadas num set que será deletado ao fim do loop
+
+	tempoPausa.restart();
 
 	if (!rodando) return terminar;
 	if (pausado) {
 		despausar();
+		tempoPausa.restart();
 		return IrMenuPausa;
 	}
 	else return continuar;

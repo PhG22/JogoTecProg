@@ -27,6 +27,7 @@ namespace gerenciadorEstados {
 		unsigned int IDJanelaFechada;
 		bool rodando;
 		bool pausado;
+		Clock tempoPausa;
 		Player* pJog;
 
 
