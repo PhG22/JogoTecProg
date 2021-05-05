@@ -14,6 +14,8 @@
 
 03/05 - 21:45 (problemas com menu de pause) - Monitor: Augusto Modrei Correia
 
+05/05 - 20:25 (problemas com trajetória de projéteis) - Monitor: Augusto Modrei Correia
+
 # Reuniões com Professor
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
 
