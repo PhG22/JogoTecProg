@@ -6,8 +6,9 @@ Player::Player(Vetor2F pos) : Colidivel(pos, Vetor2F(), IdsDesenhaveis::player, 
 
 }
 
-Player::~Player()
-{}
+Player::~Player(){
+
+}
 
 void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor, Fase* pfase)
 {
@@ -15,6 +16,10 @@ void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent,
 	dimensoes = janela.getTamanho(caminho);
 	gColisor.addColidivel(this);
 	pFase = pfase;
+
+	vida = 100;
+	vivo = true;
+	score = 0;
 
 	chaveListener = gEvent.addListenerTeclado([this](const Event ev) {tratarEvento(ev); });
 }
@@ -24,7 +29,12 @@ void Player::atualizar(float t)
 	position.x = position.x + (v.x * t);
 	position.y = position.y + (v.y * t);
 
-	cout << score << endl;
+	if (vida <= 0)
+		morrer();
+
+	//cout <<"pts: "<< score << endl;
+	//cout <<"vida: "<< vida << endl;
+	cout << position << endl;
 
 }
 
@@ -89,16 +99,25 @@ void Player::tratarEvento(const sf::Event& ev)
 
 void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro) {
 
-	if (idOutro == IdsDesenhaveis::inimigo) {
-		cout << "ataquei" << endl;
+	if (idOutro == IdsDesenhaveis::inimigo || idOutro == IdsDesenhaveis::projetil) {
+		vida -= 10;
 		Vetor2F dist = position - posOutro;
 
 		v = v * -1;
-		position.x = position.x + dist.x * 0.1;
+		position.x = position.x + dist.x;
 	}
 
 	else if (idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso)
 		v.y = 0;
+
+	else if (idOutro == IdsDesenhaveis::reliquia)
+		score += 100;
+
+	else if (idOutro == IdsDesenhaveis::vida)
+		vida += 10;
+
+	else if (idOutro == IdsDesenhaveis::agua || idOutro == IdsDesenhaveis::lava || idOutro == IdsDesenhaveis::espinho)
+		vida = 0;
 }
 
 void Player::setPos(Vetor2F pos) {
@@ -123,4 +142,12 @@ void Player::resetScore() {
 
 long int Player::getScore() {
 	return score;
+}
+
+void Player::morrer() {
+	vivo = false;
+}
+
+bool Player::getVivo() {
+	return vivo;
 }

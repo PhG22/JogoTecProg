@@ -24,6 +24,7 @@ namespace gerenciadorColisoes {
 			inimigo,
 			projetil,
 			projetilPlayer,
+			reliquia,
 			padrao
 
 		};

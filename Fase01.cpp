@@ -4,6 +4,7 @@
 #include "Mumia.h"
 #include "Atirador.h"
 #include "Projetil.h"
+#include "Coletavel.h"
 #include "GerenciadorCenas.h"
 
 Fase01::Fase01(GerenciadorGrafico& gg, Player* pjog) : Fase(gg, pjog, "Resources/TileMaps/Fase01.json") {
@@ -13,6 +14,7 @@ Fase01::Fase01(GerenciadorGrafico& gg, Player* pjog) : Fase(gg, pjog, "Resources
 void Fase01::inicializar() {
 	gGraf.resizeCamera({ 500,450 }, pJog->getPos());
 
+	//instanciando inimigos
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(1647.f, 241.f), Vetor2F(0, 0), this, pJog));
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(2286.f, 208.f), Vetor2F(0, 0), this, pJog));
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(2604.f, 241.f), Vetor2F(0, 0), this, pJog));
@@ -30,6 +32,24 @@ void Fase01::inicializar() {
 	listaDesenhaveis.inserir(new Mumia(Vetor2F(4111.f, 337.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 4366, pJog));
 	listaDesenhaveis.inserir(new Mumia(Vetor2F(4908.f, 338.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5100, pJog));
 	listaDesenhaveis.inserir(new Mumia(Vetor2F(5711.f, 336.f), Vetor2F(0, 0), "Resources/Textures/mumia.png", 5804, pJog));
+
+	//instanciando coletáveis
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(397.f, 303.f), IdsDesenhaveis::vida, "Resources/Textures/vida.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(1774.f, 366.f), IdsDesenhaveis::vida, "Resources/Textures/vida.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(2926.f, 369.f), IdsDesenhaveis::vida, "Resources/Textures/vida.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(4300.f, 368.f), IdsDesenhaveis::vida, "Resources/Textures/vida.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(5774.f, 360.f), IdsDesenhaveis::vida, "Resources/Textures/vida.png"));
+
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(587.f, 325.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(921.f, 324.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(1327.f, 327.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(2202.f, 254.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(2604.f, 255.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(2765.f, 332.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(3214.f, 256.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(3966.f, 293.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(4490.f, 262.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
+	listaDesenhaveis.inserir(new Coletavel(Vetor2F(6211.f, 336.f), IdsDesenhaveis::reliquia, "Resources/Textures/Reliquia.png"));
 
 
 	pJog->inicializar(gGraf, gEvent, gColisor, this);
@@ -75,5 +95,10 @@ int Fase01::executar() {
 		tempoPausa.restart();
 		return IrMenuPausa;
 	}
+	if (!pJog->getVivo()) {
+		gGraf.resizeCamera({ 800,600 }, { 400,300 });
+		return voltar;
+	}
+
 	else return continuar;
 }

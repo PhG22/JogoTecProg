@@ -24,8 +24,9 @@ namespace gerenciadorTiles {
 	{
 
 	public:
-		typedef struct info
+		typedef class info
 		{
+		public:
 			const IdsDesenhaveis::IDsDesenhaveis id;
 			const Vetor2F posicao;
 			const Vetor2U tamanho;

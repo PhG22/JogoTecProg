@@ -14,6 +14,7 @@ private:
 	long int score;
 	Fase* pFase;
 	Clock timer;
+	bool vivo;
 
 public:
 
@@ -29,5 +30,7 @@ public:
 	void addScore(long int pts);
 	void resetScore();
 	long int getScore();
+	void morrer();
+	bool getVivo();
 };
 

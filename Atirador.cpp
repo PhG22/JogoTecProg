@@ -25,7 +25,7 @@ void Atirador::atualizar(float t) {
 void Atirador::atirar() {
 
 	Vetor2F vel = { 300,0 };
-	vel = vel.projOrtogonal((position - pJog->getPos()).versor());
+	vel = (pJog->getPos() - position).versor() * vel.modulo();
 
 
 
