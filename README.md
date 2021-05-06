@@ -16,7 +16,7 @@
 
 05/05 - 20:25 (problemas com trajetória de projéteis) - Monitor: Augusto Modrei Correia
 
-06/05 - 15:XX (problemas com campo de texto) - Monitor: Lucas Eduardo Bonacio Skora
+06/05 - 15:50 (problemas com campo de texto) - Monitor: Lucas Eduardo Bonacio Skora
 
 # Reuniões com Professor
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
