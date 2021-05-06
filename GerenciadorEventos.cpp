@@ -5,6 +5,12 @@ namespace gerenciadorEventos {
 
 	void GerenciadorEventos::tratarEventos() {
 
+		for (auto i : removerListenersTeclado) {
+			listenerTeclado.erase(i);
+		}
+
+		removerListenersTeclado.clear();
+
 		while (Janela->pollEvent(event)) {
 			if (event.type == Event::MouseWheelScrolled
 				|| event.type == Event::MouseButtonPressed
@@ -53,7 +59,7 @@ namespace gerenciadorEventos {
 	}
 
 	void GerenciadorEventos::rmListenerTeclado(int id) {
-		listenerTeclado.erase(id);
+		removerListenersTeclado.insert(id);
 	}
 
 	unsigned int GerenciadorEventos::addListenerMisc(function<void(const Event&)> chamada) {

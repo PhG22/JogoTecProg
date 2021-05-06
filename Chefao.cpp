@@ -46,13 +46,10 @@ void Chefao::atualizar(float t) {
 
 void Chefao::atirar() {
 
-	Vetor2F vel = { 100,0 };
-	vel = vel.projOrtogonal((position - pJog->getPos()).versor());
-
-
+	Vetor2F vel = { 300,0 };
+	vel = (pJog->getPos() - position).versor() * vel.modulo();
 
 	Projetil* p = new Projetil(position, vel, IdsDesenhaveis::projetil, "Resources/Textures/projetilChefe.png");
 	pFase->inserirProjetil(p);
-
 
 }

@@ -7,7 +7,7 @@ Atirador::Atirador(Vetor2F pos/* = { 0,0 }*/, Vetor2F vel /*= { 0,0 }*/, Fase* p
 }
 
 Atirador::~Atirador() {
-
+	
 }
 
 void Atirador::atualizar(float t) {

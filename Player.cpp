@@ -2,7 +2,14 @@
 #include "Fase.h"
 #include "Projetil.h"
 
-Player::Player(Vetor2F pos) : Colidivel(pos, Vetor2F(), IdsDesenhaveis::player, "Resources/Textures/player.png") {
+Player::Player(Vetor2F pos) : Colidivel(pos, Vetor2F(), IdsDesenhaveis::player, "Resources/Textures/player.png") ,
+grounded{0},
+arrasto{.95f},
+jumpForce{75.f},
+gravidade{1.5f},
+velMaxY{10.f},
+velMin{1.f}
+{
 
 }
 
@@ -20,27 +27,39 @@ void Player::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent,
 	vida = 100;
 	vivo = true;
 	score = 0;
+	v = { 0,0 };
 
 	chaveListener = gEvent.addListenerTeclado([this](const Event ev) {tratarEvento(ev); });
 }
 
 void Player::atualizar(float t)
 {
-	position.x = position.x + (v.x * t);
-	position.y = position.y + (v.y * t);
+	position.x += (v.x * t);
+	position.y += v.y;
+
+	v.y += 1.0 * gravidade;
+	if (abs(v.y) > velMaxY)
+		v.y = velMaxY * ((v.y < 0.f) ? -1.f : 1.f);
+
+	v.y *= arrasto;
+
+	if (abs(v.x) < velMinY)
+		v.x = 0.f;
+	if (abs(v.y) < velMinY)
+		v.y = 0.f;
 
 	if (vida <= 0)
 		morrer();
 
 	//cout <<"pts: "<< score << endl;
 	//cout <<"vida: "<< vida << endl;
-	cout << position << endl;
+	//cout << position << endl;
 
 }
 
 void Player::desenhar(GerenciadorGrafico& janela)
 {
-	janela.centralizar({ position.x + 150, position.y - 100 });
+	janela.resizeCamera({ 500,450 }, { position.x + 150, position.y - 100 });
 
 	janela.desenhar(caminho, position);
 }
@@ -57,10 +76,13 @@ void Player::tratarEvento(const sf::Event& ev)
 				v.x = -300;
 				break;
 			case Keyboard::Key::W:
-				v.y = -300;
+				if (grounded < 2) {
+					v.y -= jumpForce;
+					grounded++;
+				}
 				break;
 			case Keyboard::Key::S:
-				v.y = 300;
+				v.y = v.y;
 				break;
 			case Keyboard::Key::Space:
 				atirar();
@@ -83,7 +105,7 @@ void Player::tratarEvento(const sf::Event& ev)
 				v.x = 0;
 				break;
 			case Keyboard::Key::W:
-				v.y = 0;
+				v.y = v.y;
 				break;
 			case Keyboard::Key::S:
 				v.y = 0;
@@ -107,16 +129,22 @@ void Player::colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro)
 		position.x = position.x + dist.x;
 	}
 
-	else if (idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso)
+	if (idOutro == IdsDesenhaveis::chao || idOutro == IdsDesenhaveis::caixa || idOutro == IdsDesenhaveis::vaso) {
+		
+		float dist = posOutro.y - position.y;
 		v.y = 0;
+		position.y = (position.y + dist) - 32;
 
-	else if (idOutro == IdsDesenhaveis::reliquia)
+		grounded = 0;
+	}
+
+	if (idOutro == IdsDesenhaveis::reliquia)
 		score += 100;
 
-	else if (idOutro == IdsDesenhaveis::vida)
+	if (idOutro == IdsDesenhaveis::vida)
 		vida += 10;
 
-	else if (idOutro == IdsDesenhaveis::agua || idOutro == IdsDesenhaveis::lava || idOutro == IdsDesenhaveis::espinho)
+	if (idOutro == IdsDesenhaveis::agua || idOutro == IdsDesenhaveis::lava || idOutro == IdsDesenhaveis::espinho)
 		vida = 0;
 }
 

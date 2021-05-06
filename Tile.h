@@ -22,7 +22,7 @@ namespace gerenciadorTiles {
 	public:
 		Tile(const IdsDesenhaveis::IDsDesenhaveis ID = padrao, const char* caminhoArquivo = nullptr, Vetor2F tamanho = -1.0);
 		~Tile();
-		virtual void inicializar(GerenciadorGrafico& gGraf, GerenciadorEventos& gEvent);
+		void inicializar(GerenciadorGrafico& gGraf, GerenciadorEventos& gEvent);
 		void desenhar(GerenciadorGrafico& gGraf, const Vetor2F posicao)const;
 		const IdsDesenhaveis::IDsDesenhaveis getId()const;
 		virtual void colidir(IdsDesenhaveis::IDsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2U posicao);

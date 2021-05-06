@@ -20,6 +20,9 @@ namespace gerenciadorEventos {
 		 map<unsigned int, function<void (const Event&) >> listenerMouse;
 		 map<unsigned int, function<void(const Event&) >> listenerTeclado;
 		 map<unsigned int, function<void(const Event&) >> listenerMisc;
+
+		 set<unsigned int> removerListenersTeclado;
+
 	 public:
 		 GerenciadorEventos() {}
 		 ~GerenciadorEventos() {}

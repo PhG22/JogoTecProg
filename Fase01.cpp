@@ -12,8 +12,6 @@ Fase01::Fase01(GerenciadorGrafico& gg, Player* pjog) : Fase(gg, pjog, "Resources
 }
 
 void Fase01::inicializar() {
-	gGraf.resizeCamera({ 500,450 }, pJog->getPos());
-
 	//instanciando inimigos
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(1647.f, 241.f), Vetor2F(0, 0), this, pJog));
 	listaDesenhaveis.inserir(new Atirador(Vetor2F(2286.f, 208.f), Vetor2F(0, 0), this, pJog));
@@ -98,6 +96,9 @@ int Fase01::executar() {
 	if (!pJog->getVivo()) {
 		gGraf.resizeCamera({ 800,600 }, { 400,300 });
 		return voltar;
+	}
+	if (pJog->getPos().x >= 6360) {
+		return IrMenu;
 	}
 
 	else return continuar;

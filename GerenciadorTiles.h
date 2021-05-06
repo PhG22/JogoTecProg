@@ -26,7 +26,7 @@ namespace gerenciadorTiles {
 	public:
 		typedef class info
 		{
-		public:
+		 public:
 			const IdsDesenhaveis::IDsDesenhaveis id;
 			const Vetor2F posicao;
 			const Vetor2U tamanho;

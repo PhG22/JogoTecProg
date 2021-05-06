@@ -9,6 +9,7 @@ namespace gerenciadorGrafico {
 		janela->setView(camera);
 		janela->setKeyRepeatEnabled(false);
 		Fonte.loadFromFile("Resources/Fonte/Newathenaunicode-EP3l.ttf");
+		janela->setFramerateLimit(60);
 
 	}
 

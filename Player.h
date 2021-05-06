@@ -15,6 +15,13 @@ private:
 	Fase* pFase;
 	Clock timer;
 	bool vivo;
+	int grounded;
+
+	float arrasto;
+	float jumpForce;
+	float gravidade;
+	float velMaxY;
+	float velMinY;
 
 public:
 
