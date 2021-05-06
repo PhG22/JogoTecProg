@@ -1389,11 +1389,11 @@ Privada
 <XPD:OBJ name="OwnedViews[38]" type="UMLNoteView" guid="HdjQjGejJUO4SPD1vQcQaQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1910</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1796</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1904</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1808</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">98</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">38</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Struct aninhada
+<XPD:ATTR name="Text" type="string">Classe aninhada
 publica
 </XPD:ATTR>
 </XPD:OBJ>
@@ -1401,7 +1401,7 @@ publica
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1868,1836;1914,1836;1914,1833</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1868,1832;1904,1832</XPD:ATTR>
 <XPD:REF name="Head">HdjQjGejJUO4SPD1vQcQaQAA</XPD:REF>
 <XPD:REF name="Tail">5Fu6NbY7FUmZAks2veeNvQAA</XPD:REF>
 </XPD:OBJ>
