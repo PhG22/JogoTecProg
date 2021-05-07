@@ -70,7 +70,7 @@
 <XPD:ATTR name="Left" type="integer">2908</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2172</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">1565</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">753</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">837</XPD:ATTR>
 <XPD:REF name="Model">kRM476zs+ECw1S4LUgT8kwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="6Mm5g3HBhUibjYrQJCLcSgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="nwd79vvBukWAIcfNuSgAlQAA">
@@ -927,7 +927,7 @@ Privada
 <XPD:ATTR name="Left" type="integer">2924</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2620</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">538</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">290</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
 <XPD:REF name="Model">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="pdkTg6Sp7kO1qrDOShZpMAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="AfPRj3ex6k2ygLp3CLfY8wAA">
@@ -7873,7 +7873,7 @@ TileMap
 <XPD:REF name="Associations[8]">XRy1tzHGg0StPi0taqMajQAA</XPD:REF>
 <XPD:REF name="Associations[9]">5fvdbLiz+Uan4O2ChaD2FAAA</XPD:REF>
 <XPD:REF name="Associations[10]">JxqYoHUhm0GjYptZjjWv0QAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">11</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="1zy615jMZku2a4KlV3rW9wAA">
 <XPD:ATTR name="Name" type="string">chaveListener</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
@@ -7902,6 +7902,42 @@ TileMap
 <XPD:ATTR name="Name" type="string">timer</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Clock</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="rqMiKuFzPUODjh+oUzI1/wAA">
+<XPD:ATTR name="Name" type="string">grounded</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="UudsG13Ekk+tmvC1Q8UPNAAA">
+<XPD:ATTR name="Name" type="string">arrasto</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="0xVJ8Rw4SUu4Ah44WzVEggAA">
+<XPD:ATTR name="Name" type="string">jumpForce</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="UUS3KEGH20yVbMB3f72N8AAA">
+<XPD:ATTR name="Name" type="string">gravidade</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="X/v7+GHrykOAKw+ezf083wAA">
+<XPD:ATTR name="Name" type="string">velMinY</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
+<XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="tlaNrtFrPUSpVhtRT1hUxQAA">
+<XPD:ATTR name="Name" type="string">velMinY</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">float</XPD:ATTR>
 <XPD:REF name="Owner">I41jcLXvlEWKq9Nute9FhwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
