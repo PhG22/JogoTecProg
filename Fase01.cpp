@@ -98,7 +98,7 @@ int Fase01::executar() {
 		return voltar;
 	}
 	if (pJog->getPos().x >= 6360) {
-		return IrMenu;
+		return IrMenuRanking;
 	}
 
 	else return continuar;

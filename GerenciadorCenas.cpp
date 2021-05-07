@@ -4,6 +4,7 @@
 #include "Fase02.h"
 #include "MenuPrincipal.h"
 #include "MenuPausa.h"
+#include "MenuRanking.h"
 
 namespace gerenciadorEstados {
 
@@ -43,6 +44,11 @@ namespace gerenciadorEstados {
 
 		case IrMenuPausa:
 			pushEstado(new MenuPausa(gGraf));
+			return true;
+			break;
+		
+		case IrMenuRanking:
+			pushEstado(new MenuRanking(gGraf, pJog));
 			return true;
 			break;
 

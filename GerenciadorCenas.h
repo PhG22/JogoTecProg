@@ -16,7 +16,8 @@ enum IdRetorno {
 	IrSegundaFase,
 	voltar,
 	IrMenuPausa,
-	IrMenu
+	IrMenu,
+	IrMenuRanking
 };
 
 namespace gerenciadorEstados {

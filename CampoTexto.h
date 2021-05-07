@@ -21,7 +21,7 @@ private:
 
 public:
 
-	CampoTexto(GerenciadorEventos& GE, unsigned short int compMax, Vetor2F pos = { 0.0f, 0.0f }, Vetor2F tam = { 0.0f, 0.0f }, std::string texto = "", unsigned int TamTexto = 15U, Cor Cor = { 128, 128, 128 });
+	CampoTexto(GerenciadorEventos& GE, unsigned short int compMax = 15, Vetor2F pos = { 0.0f, 0.0f }, Vetor2F tam = { 0.0f, 0.0f }, std::string texto = "", unsigned int TamTexto = 15U, Cor Cor = { 128, 128, 128 });
 	~CampoTexto();
 
 	const std::string& getTexto()const;

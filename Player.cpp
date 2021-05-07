@@ -8,7 +8,7 @@ arrasto{.95f},
 jumpForce{75.f},
 gravidade{1.5f},
 velMaxY{10.f},
-velMin{1.f}
+velMinY{1.f}
 {
 
 }
@@ -51,7 +51,7 @@ void Player::atualizar(float t)
 	if (vida <= 0)
 		morrer();
 
-	//cout <<"pts: "<< score << endl;
+	cout <<"pts: "<< score << endl;
 	//cout <<"vida: "<< vida << endl;
 	//cout << position << endl;
 

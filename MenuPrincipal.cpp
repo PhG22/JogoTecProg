@@ -26,6 +26,7 @@ int MenuPrincipal::executar()
 	{
 		imprimiu = true;
 		std::cout << "o texto digitado eh: " << campo.getTexto() << std::endl;
+		return IrMenuRanking;
 	}
 
 	return ret;
