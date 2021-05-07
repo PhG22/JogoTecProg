@@ -37,6 +37,7 @@ int MenuRanking::executar() {
 			ranking.addPontuacao(pJog->getScore(), campo.getTexto());
 		pJog->resetScore();
 		adicionandoScore = false;
+		ranking.salvarRanking();
 	}
 
 	ranking.rmListeners();

@@ -11,7 +11,7 @@ int offset;*/
 
 Leaderboard::Leaderboard(Vetor2F p, Vetor2F s, unsigned int tf) :
 	mouse_event_id{0},
-	caminho{"highScores"},
+	caminho{"highScores.dat"},
 	pos{p},
 	tam{s},
 	tamFonte{tf},
@@ -21,13 +21,12 @@ Leaderboard::Leaderboard(Vetor2F p, Vetor2F s, unsigned int tf) :
 }
 
 Leaderboard::~Leaderboard(){
-
 }
 
 void Leaderboard::inicializar(GerenciadorGrafico* gg, GerenciadorEventos* ge) {
 	gGraf = gg;
 	gEvent = ge;
-	carregarPontuacoes();
+	//carregarPontuacoes();
 }
 
 void Leaderboard::inscrever() {
@@ -52,18 +51,20 @@ void Leaderboard::setTamFonte(const unsigned int s) {
 }
 
 void Leaderboard::carregarPontuacoes() {
-	ifstream file;
+	ifstream file(caminho, ios::in);
 
-	file.open(caminho);
+	scores.clear();
 
-	if (!file.is_open()) cout << "pontuacoes nao encontradas!" << endl;
-
-	else {
+	if(file) {
 		unsigned int score;
 		string nome;
-		while (file >> score >> nome)
+		while (!file.eof()) {
+			file >> score >> nome;
 			scores.emplace(score, nome);
+		}
 	}
+	else
+		cerr << " Arquivo nao pode ser aberto " << endl;
 
 	file.close();
 }
@@ -88,14 +89,16 @@ void Leaderboard::desenhar() {
 }
 
 void Leaderboard::addPontuacao(const long int score, const string nome) {
+	
 	scores.emplace(score, nome);
-	//scores.emplace(score + 100, nome);
-	//scores.emplace(score + 200, nome);
-	//scores.emplace(score + 300, nome);
-	ofstream file;
-	file.open(caminho, fstream::in | fstream::ate);
-	file << score << " " << nome << endl;
-	file.close();
+	/*ofstream file(caminho, ios::out);
+	if (file)
+		for (auto p : scores)
+			file << p.first << " " << p.second << endl;
+	else
+		cerr << " Arquivo nao pode ser aberto " << endl;
+
+	file.close();*/
 }
 
 void Leaderboard::rmListeners() {
@@ -103,4 +106,15 @@ void Leaderboard::rmListeners() {
 		gEvent->rmListenerMouse(mouse_event_id);
 		mouse_event_id = 0;
 	}
+}
+
+void Leaderboard::salvarRanking() {
+	ofstream file(caminho, ios::out);
+	if (file)
+		for (auto p : scores)
+			file << p.first << " " << p.second << endl;
+	else
+		cerr << " Arquivo nao pode ser aberto " << endl;
+
+	file.close();
 }

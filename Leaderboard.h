@@ -33,5 +33,6 @@ public:
 	void desenhar();
 	void addPontuacao(const long int score, const string nome);
 	void rmListeners();
+	void salvarRanking();
 };
 
