@@ -18,9 +18,15 @@
 
 06/05 - 15:50 (problemas com campo de texto) - Monitor: Lucas Eduardo Bonacio Skora
 
+07/05 - 13:20 (problemas com salvamento da Leaderboard) - Monitor: Lucas Eduardo Bonacio Skora
+
+07/05 - 19:20 (Problemas com Organização de dados na Leaderboard) -  Monitor: Augusto Modrei Correia
+
 # Reuniões com Professor
 16/04 - 15:00 (duvidas sobre o diagrama de classes em UML e orientações em geral)
 
 23/04 - 15:00 (Progresso do jogo, orientações e correção do diagrama de classes em UML)
 
 30/04 - 15:00 (Progresso do jogo, orientações e correção do diagrama de classes em UML)
+
+07/05 - 15:00 (Progresso do jogo, orientações, correção do diagrama de classes em UML e Threads)
