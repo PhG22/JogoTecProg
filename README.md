@@ -18,8 +18,7 @@
   1- Instalar a biblioteca gráfica SFML 2.5.1 32-bit compatível com IDE de preferência.
   link para download: https://www.sfml-dev.org/download/sfml/2.5.1/
 
-  2- Abrir o arquivo de projeto em Código.zip ou adicionar os arquivos .h e .cpp
-  em um novo projeto.
+  2- adicionar os arquivos .h e .cpp em um novo projeto.
 
   3- compilar e rodar.
 
