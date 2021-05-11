@@ -1,4 +1,4 @@
-# JogoTecProg
+# JogoTecProg - Curse of Anubis
 
 ## Sobre o Projeto
   Este é um projeto realizado para a matéria de Técnicas de Programação do curso de Eng.Computação da UTFPR, realizado pelos alunos
