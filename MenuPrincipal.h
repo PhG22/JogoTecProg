@@ -6,8 +6,8 @@
 class MenuPrincipal: public Menu
 {
 private:
-	bool imprimiu;
-	CampoTexto campo;
+	//bool imprimiu;
+	//CampoTexto campo;
 
 	void inicializar() override;
 	int executar() override;

@@ -26,6 +26,10 @@ Leaderboard::~Leaderboard(){
 void Leaderboard::inicializar(GerenciadorGrafico* gg, GerenciadorEventos* ge) {
 	gGraf = gg;
 	gEvent = ge;
+
+	for (auto p : scores) {
+		cout << p.first << " - " << p.second << endl;
+	}
 	//carregarPontuacoes();
 }
 
@@ -73,13 +77,13 @@ void Leaderboard::desenhar() {
 	Vetor2F posTexto = pos + Vetor2F(tam.x / 2, 0);
 	unsigned int skip = offset;
 
-	for (auto p : scores) {
+	for (auto p = scores.rbegin(); p != scores.rend(); p++) {
 		if (skip > 0) {
 			skip--;
 			continue;
 		}
 		stringstream str;
-		str << p.first << " - " << p.second << endl;
+		str << (*p).first << " - " << (*p).second << endl;
 		gGraf->desenharTexto(str.str(), posTexto, tamFonte);
 		posTexto.y += tamFonte;
 
@@ -110,9 +114,12 @@ void Leaderboard::rmListeners() {
 
 void Leaderboard::salvarRanking() {
 	ofstream file(caminho, ios::out);
-	if (file)
-		for (auto p : scores)
-			file << p.first << " " << p.second << endl;
+	if (file) {
+		auto it = scores.begin();
+		file << (*it).first << ' ' << (*it).second;
+		for (++it; it != scores.end(); ++it)
+			file << '\n' << (*it).first << ' ' << (*it).second;
+	}		
 	else
 		cerr << " Arquivo nao pode ser aberto " << endl;
 

@@ -8,7 +8,7 @@ private:
 	Leaderboard ranking;
 	CampoTexto campo;
 	const char* caminho;
-	bool adicionandoScore;
+	//bool adicionandoScore;
 	bool imprimiu;
 	Player* pJog;
 

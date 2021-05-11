@@ -2,7 +2,7 @@
 #include "Player.h"
 
 MenuRanking::MenuRanking(GerenciadorGrafico& gg, Player* pjog) : Menu(gg), 
-pJog{ pjog }, campo(ge, 15, { 400.0f, 500.0f }, { 200, 50 }), adicionandoScore{ false }, imprimiu{false} {
+pJog{ pjog }, campo(ge, 15, { 400.0f, 550.0f }, { 200, 50 }), imprimiu{false} {
 	inicializar();
 }
 
@@ -12,7 +12,7 @@ MenuRanking::~MenuRanking() {
 
 void MenuRanking::inicializar() {
 	gg.resizeCamera({ 800,600 }, { 400,300 });
-	gb.adicionaBotao(new Botao({ 250.f,100.f }, { 200.f,50.f }, "Menu Principal", [this] {setCodigoRetorno(IrMenu); }));
+	gb.adicionaBotao(new Botao({ 150.f,50.f }, { 200.f,50.f }, "Menu Principal", [this] {setCodigoRetorno(IrMenu); }));
 	gb.adicionaBotao(&campo);
 
 	ranking.inicializar(&gg, &ge);
@@ -21,27 +21,28 @@ void MenuRanking::inicializar() {
 }
 
 void MenuRanking::addNovaPontuacao() {
-	adicionandoScore = true;
+	//adicionandoScore = true;
 }
 
 int MenuRanking::executar() {
 	int ret = Menu::executar();
 
 	ranking.desenhar();
+	gg.desenharTexto("Insira seu nome abaixo: ", { 400.0f,500.0f }, 15);
 
 	if (!imprimiu && campo.getTextoPronto()) //Verificar se as classes estão funcionando
 	{
 		imprimiu = true;
 		ranking.inscrever();
-		if(campo.getTexto() != "")
+		if(campo.getTexto() != "" && pJog->getScore() > 0)
 			ranking.addPontuacao(pJog->getScore(), campo.getTexto());
 		pJog->resetScore();
-		adicionandoScore = false;
+		//adicionandoScore = false;
 		ranking.salvarRanking();
 	}
 
 	ranking.rmListeners();
-	adicionandoScore = false;
+	//adicionandoScore = false;
 	//pJog->resetScore();
 
 	return ret;

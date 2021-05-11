@@ -62,6 +62,12 @@ void Player::desenhar(GerenciadorGrafico& janela)
 	janela.resizeCamera({ 500,450 }, { position.x + 150, position.y - 100 });
 
 	janela.desenhar(caminho, position);
+	stringstream str;
+
+	str << "Vida: " << vida << "\n\n" << "Score: " << score << endl;
+
+	janela.desenharRetanguloSolido({ position.x - 50, position.y - 300 }, {180, 50}, Cor(70,0,255));
+	janela.desenharTexto(str.str(), { position.x - 50, position.y - 300 }, 20);
 }
 
 void Player::tratarEvento(const sf::Event& ev)
@@ -173,6 +179,7 @@ long int Player::getScore() {
 }
 
 void Player::morrer() {
+	resetScore();
 	vivo = false;
 }
 

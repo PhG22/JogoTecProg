@@ -27,13 +27,6 @@ void Inimigo::inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent
 	gColisor.addColidivel(this);
 }
 
-void Inimigo::atualizar(float t) {
-
-	position.x = position.x + (v.x * t);
-	position.y = position.y + (v.y * t);
-
-}
-
 void Inimigo::Morrer() {
 		if(position.x != -11000)
 			pJog->addScore(pts);

@@ -13,7 +13,7 @@ public:
 	virtual ~Inimigo();
 	void colidir(IDsDesenhaveis idOutro, Vetor2F posOutro, Vetor2U dimOutro);
 	virtual void inicializar(GerenciadorGrafico& janela, GerenciadorEventos& gEvent, GerenciadorColisoes& gColisor);
-	virtual void atualizar(float t);
+	virtual void atualizar(float t) = 0;
 	void Morrer();
 
 

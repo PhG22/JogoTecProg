@@ -98,6 +98,7 @@ int Fase01::executar() {
 		return voltar;
 	}
 	if (pJog->getPos().x >= 6360) {
+		pJog->addScore(pJog->getVivo() * 10);
 		return IrMenuRanking;
 	}
 
