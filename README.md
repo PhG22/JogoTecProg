@@ -7,8 +7,11 @@
 
 # Informações
   Sistema Operacional: Windows x86 e x64
+  
   IDE Utilizada: Microsoft Visual Studio Community 2019 - Versão 16.7.6
+  
   Compilador Utilizado: Compilador Nativo do Visual Studio(Microsoft Visual C++ 2019) 
+  
   Biblioteca Gráfica Utilizada: SFML 2.5.1 - 32-bit
 
 # Intruções de Compilação
